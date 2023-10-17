@@ -6,4 +6,3 @@
 - NVMe 1: Samsung 970 EVO Plus 1TB
 - NVMe 2: Sabrent Rocket 2GB
 - GPU: Gigabyte NVIDIA GTX 1660 Super OC 6GB
-

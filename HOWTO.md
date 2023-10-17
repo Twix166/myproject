@@ -5,4 +5,3 @@ Some detail about using the configuration.nix file inculded here
 1. replace the username in the user profile
 
 > user.user.username
-
