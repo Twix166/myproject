@@ -131,7 +131,6 @@
   minecraft
   steam
   protonup-qt
-  exult
   # wine
     # support both 32- and 64-bit applications
     wineWowPackages.stable
