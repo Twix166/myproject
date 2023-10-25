@@ -127,6 +127,8 @@
   wget
   usbutils
   pciutils
+  tealdeer
+  # coding
   git
   gh
   vscode
