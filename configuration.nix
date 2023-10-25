@@ -131,7 +131,6 @@
   bitwarden
   fwupd
   clinfo
-  eglinfo
   glxinfo
   vulkaninfo
   # coding
