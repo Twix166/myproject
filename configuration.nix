@@ -91,6 +91,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable fwupd daemon
+  services.fwupd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rbalm = {
     isNormalUser = true;
@@ -129,7 +132,7 @@
   pciutils
   tealdeer
   bitwarden
-  fwupd
+  # fwupd
   clinfo
   virtualglLib
   vulkan-tools
