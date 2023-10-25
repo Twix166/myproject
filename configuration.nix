@@ -108,7 +108,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [ "electron-24.8.6" ];
-  }
+  };
 
 
   # List packages installed in system profile. To search, run:
