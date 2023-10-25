@@ -129,6 +129,7 @@
   pciutils
   tealdeer
   bitwarden
+  fwupd
   # coding
   git
   gh
