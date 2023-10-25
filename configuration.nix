@@ -127,6 +127,7 @@
   usbutils
   pciutils
   git
+  gh
   vscode
   # kde
   kate
