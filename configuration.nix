@@ -104,13 +104,10 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  {
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-24.8.6"
-    ];
+  # Allow unfree packages and insecure packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "electron-24.8.6" ];
   }
 
 
