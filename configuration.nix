@@ -128,6 +128,7 @@
   usbutils
   pciutils
   tealdeer
+  bitwarden
   # coding
   git
   gh
