@@ -131,7 +131,7 @@
   bitwarden
   fwupd
   clinfo
-  virtualgllib
+  virtualgl-lib
   vulkan-tools
   # coding
   git
