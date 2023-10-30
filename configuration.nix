@@ -8,8 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # include home-manager
-    #  <home-manager/nixos>
+    #  include home-manager
+      <home-manager/nixos>
     ];
 
   # Latest Kernel
@@ -279,21 +279,21 @@
 
   #home-manager configuration
 
-  # home-manager.users.rbalm = {
-  #  home.stateVersion = "23.05";
+  home-manager.users.rbalm = {
+    home.stateVersion = "23.05";
 
-  #  programs.librewolf = {
-  #    enable = true;
-  #    # enable WebGL, cookies and history
-  #    settings = {
-  #      "webgl.disabled" = false;
-  #      "privacy.resistRingerprinting" = false;
-  #      "privacy.clearOnShutdown.history" = false;
-  #      "privacy.clearOnShutdown.cookies" = false;
-  #      "network.cookie.lifetimePolicy" = 0;
-  #    };
-  #  };
-  # };
+    programs.librewolf = {
+      enable = true;
+      # enable WebGL, cookies and history
+      settings = {
+        "webgl.disabled" = false;
+        "privacy.resistRingerprinting" = false;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.cookies" = false;
+        "network.cookie.lifetimePolicy" = 0;
+      };
+    };
+   };
 
   # NFS Client Configuration
   fileSystems."/homes" = {
