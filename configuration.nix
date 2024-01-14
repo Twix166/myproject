@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     #  include home-manager
-      <home-manager/nixos>
+    #  <home-manager/nixos>
     ];
 
   # Latest Kernel
@@ -20,6 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -247,21 +248,27 @@
 
   #home-manager configuration
 
-  home-manager.users.rbalm = {
-    home.stateVersion = "23.05";
+  #home-manager.users.rbalm = {
+  #  home.stateVersion = "23.05";
 
-    programs.librewolf = {
-      enable = true;
-      # enable WebGL, cookies and history
-      settings = {
-        "webgl.disabled" = false;
-        "privacy.resistRingerprinting" = false;
-        "privacy.clearOnShutdown.history" = false;
-        "privacy.clearOnShutdown.cookies" = false;
-        "network.cookie.lifetimePolicy" = 0;
-      };
+  #  programs.librewolf = {
+  #    enable = true;
+  #    # enable WebGL, cookies and history
+  #    settings = {
+  #      "webgl.disabled" = false;
+  #      "privacy.resistRingerprinting" = false;
+  #      "privacy.clearOnShutdown.history" = false;
+  #      "privacy.clearOnShutdown.cookies" = false;
+  #      "network.cookie.lifetimePolicy" = 0;
+  #    };
+  #  };
+  # };
+
+  # mount the Games volume
+  fileSystems."/games" =
+    { device = "/dev/disk/by-uuid/3201273a-c8ef-4ae2-8f01-e7e326857b4b";
+      fsType = "ext4";
     };
-   };
 
   # NFS Client Configuration
   fileSystems."/homes" = {
