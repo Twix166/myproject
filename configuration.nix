@@ -85,6 +85,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+
     # If you want to use JACK applications, uncomment this
     jack.enable = true;
 
@@ -125,6 +126,7 @@
   zoom-us
   librewolf
   whatsapp-for-linux
+  thunderbird
   # media
   vlc
   # creation
@@ -141,6 +143,8 @@
   pciutils
   tealdeer
   bitwarden
+  gparted
+  exfatprogs
   # fwupd
   clinfo
   virtualglLib
@@ -171,7 +175,9 @@
     # native wayland support (unstable)
     # wineWowPackages.waylandFull
   # xone - driver for xbox one controllers
+  linuxKernel.packages.linux_zen.xone
   ];
+
 
   # Steam Dependencies
   nixpkgs.overlays = [
@@ -206,6 +212,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Enable flatpak
+  services.flatpak.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
