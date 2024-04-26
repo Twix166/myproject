@@ -127,8 +127,11 @@
   librewolf
   whatsapp-for-linux
   thunderbird
+  discord
   # media
   vlc
+  obs-studio
+  obs-cli
   # creation
   gimp
   krita
