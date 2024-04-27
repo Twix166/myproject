@@ -162,6 +162,7 @@
   heroic
   lutris
   minecraft
+  prismlauncher # Launcher for Minecraft
   steam
   protonup-qt
   # wine
