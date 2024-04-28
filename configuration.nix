@@ -15,6 +15,9 @@
   # Latest Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # The kernel can load the correct driver
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -50,6 +53,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
@@ -148,6 +152,7 @@
   bitwarden
   gparted
   exfatprogs
+  ventoy-full
   # fwupd
   clinfo
   virtualglLib
@@ -162,7 +167,6 @@
   heroic
   lutris
   minecraft
-  prismlauncher # Launcher for Minecraft
   steam
   protonup-qt
   # wine
@@ -256,6 +260,12 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
     };
   };
 
