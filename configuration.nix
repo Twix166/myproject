@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    #  include home-manager
-    #  <home-manager/nixos>
     ];
 
   # Latest Kernel
@@ -32,6 +30,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Enable Docker
+  virtualisation.docker.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -56,8 +57,8 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
@@ -70,8 +71,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
+    xkb.layout = "gb";
+  #  xkb.Variant = "";
   };
 
   # Configure console keymap
@@ -108,7 +109,7 @@
   users.users.rbalm = {
     isNormalUser = true;
     description = "Robert Balm";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -153,6 +154,9 @@
   gparted
   exfatprogs
   ventoy-full
+  dig
+  terraform
+  docker
   # fwupd
   clinfo
   virtualglLib
@@ -163,10 +167,11 @@
   vscode
   # kde
   kate
+  kdePackages.krfb
   # gaming
   heroic
   lutris
-  minecraft
+  # minecraft
   steam
   protonup-qt
   # wine
@@ -228,7 +233,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -237,6 +242,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  system.autoUpgrade = {
+    enable = true;
+  }; 
 
   hardware = {
 
@@ -269,24 +278,6 @@
     };
   };
 
-  #home-manager configuration
-
-  #home-manager.users.rbalm = {
-  #  home.stateVersion = "23.05";
-
-  #  programs.librewolf = {
-  #    enable = true;
-  #    # enable WebGL, cookies and history
-  #    settings = {
-  #      "webgl.disabled" = false;
-  #      "privacy.resistRingerprinting" = false;
-  #      "privacy.clearOnShutdown.history" = false;
-  #      "privacy.clearOnShutdown.cookies" = false;
-  #      "network.cookie.lifetimePolicy" = 0;
-  #    };
-  #  };
-  # };
-
   # mount the Games volume
   fileSystems."/games" =
     { device = "/dev/disk/by-uuid/3201273a-c8ef-4ae2-8f01-e7e326857b4b";
@@ -298,4 +289,5 @@
     device = "10.0.0.14:/volume1/homes";
     fsType = "nfs";
   };
+
 }
