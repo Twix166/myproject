@@ -143,7 +143,9 @@
   blender
   libreoffice
   inkscape
+  bambu-studio
   # utils
+  qbittorrent-qt5
   btop
   htop
   wget
@@ -171,6 +173,7 @@
   # gaming
   heroic
   lutris
+  retroarchFull
   # minecraft
   steam
   protonup-qt
